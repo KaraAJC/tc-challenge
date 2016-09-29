@@ -17,8 +17,9 @@
 //    - Subtract the two values
 
 var sortBiggestDiff = function sortBiggestDiff(array) {
-  sa = array.sort();
-  return sa[sa.length-1] - sa[0];
+  var sortFunction = function sf(a, b) { return a - b };
+  sortedArray = array.sort(sortFunction);
+  return sortedArray[sortedArray.length-1] - sortedArray[0];
 }
 
 // Option Two: Using Math
