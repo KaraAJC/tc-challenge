@@ -37,5 +37,22 @@ let rectIntersect = function rectIntersect (rect1, rect2) {
  var endCorner2 = [(rect1.x + rect2.width),(rect2.y + rect2.height) ]
  console.log(endCorner2);
 
-  // could use ranges to compare(reduce?) coordinates to find match
-}
+  // could use ranges to compare(reduce?) coordinates to find intersections
+
+
+};
+
+/* visual for reference...
+(xCoord,yCoord)       (xCoord+width, yCoord)
+              ---------
+              |       |
+              |       |
+              |       |
+              ---------
+(xCoord,yCoord+Height) (xCoord+width,yCoord+Height)
+
+is
+ - the rect2's xCoord between rect1's xCoord and XCoord+width?
+ - the rect2's
+
+*/
