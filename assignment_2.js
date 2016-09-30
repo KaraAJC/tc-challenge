@@ -25,34 +25,52 @@ var rectDos = {x: 2,
                width: 5,
                height: 18};
 
-let rectIntersect = function rectIntersect (rect1, rect2) {
+var rectTres = {x: 0, y: 0, width: 5, height: 10};
+var rectCuatro = {x: 20, y: 20, width: 5, height: 10};
+
+var rectIntersect = function rectIntersect(rect1, rect2) {
   // range of the rectangle starts from x,y and ends at x+w, y+h
- var startCorner1 = [rect1.x, rect1.y];
- console.log(startCorner1);
- var endCorner1 = [(rect1.x + rect1.width),(rect1.y + rect1.height) ]
- console.log(endCorner1);
+     // var startCorner1 = [rect1.x, rect1.y];
+     // console.log(startCorner1);
+     // var endCorner1 = [(rect1.x + rect1.width),(rect1.y + rect1.height) ]
+     // console.log(endCorner1);
 
- var startCorner2 = [rect2.x, rect2.y];
- console.log(startCorner2);
- var endCorner2 = [(rect1.x + rect2.width),(rect2.y + rect2.height) ]
- console.log(endCorner2);
-
+     // var startCorner2 = [rect2.x, rect2.y];
+     // console.log(startCorner2);
+     // var endCorner2 = [(rect1.x + rect2.width),(rect2.y + rect2.height) ]
+     // console.log(endCorner2);
+     console.log("rectangle 1: StartX - " + rect1.x + "  StartY -  " + rect1.y + "  EndX - " + (rect1.x + rect1.width) + "  EndY - " + (rect1.y + rect1.height) );
+     console.log("rectangle 2: StartX - " + rect2.x + "  StartY -  " + rect2.y + "  EndX - " + (rect2.x + rect2.width) + "  EndY - " + (rect2.y + rect2.height) );
   // could use ranges to compare(reduce?) coordinates to find intersections
-
+  if (rect2.x > rect1.x && rect2.x < (rect1.x + rect1.width) ||
+      rect2.y > rect1.y && rect2.y < (rect1.y + rect1.height) ||
+      (rect2.x + rect2.width) > rect1.x && (rect2.x + rect2.width) < (rect1.x + rect1.width) ||
+      (rect2.y + rect2.height) > rect1.y && (rect2.y + rect2.height) < (rect1.y + rect1.height)) {
+    return true;
+  } else {
+    return false;
+  };
 
 };
 
 /* visual for reference...
-(xCoord,yCoord)       (xCoord+width, yCoord)
+(startX,startY)   x    (endX(xCoord+width), startY)
               ---------
               |       |
-              |       |
+          y   |       |
               |       |
               ---------
-(xCoord,yCoord+Height) (xCoord+width,yCoord+Height)
+(startX,endY(yCoord+Height)) (endX,endY)
 
 is
- - the rect2's xCoord between rect1's xCoord and XCoord+width?
- - the rect2's
-
+ - the rect2's startX between rect1's startX and endX?
+  if (rect2.x > rect1.x && rect2.x < (rect1.x + rect1.width)) ||
+ - the rect2's startY between rect1's startY and endY?
+      rect2.y > rect1.y && rect2.y < (rect1.y + rect1.height) ||
+ - the rect2's endX between rect1's startX and endX?
+      (rect2.x + rect2.width) > rect1.x && (rect2.x + rect2.width) < (rect1.x + rect1.width) ||
+ - the rect2's endY between rect1's startY and endY?
+      (rect2.y + rect2.height) > rect1.y && (rect2.y + rect2.height) < (rect1.y + rect1.height) {
+    return true;
+      }
 */

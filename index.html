@@ -31,6 +31,22 @@
     <p>Create a function that takes two rectangles as parameters and returns true if the rectangles intersect, false otherwise. Assume that the (0,0) of the axis is the top left. (This is actually how iOS positions views in the screen). So a rectangle with origin (0,0), width 10 and height 20 would be on the top left corner taking 10 pixels to the right and 20 pixels down.</p>
     <hr>
     <p>Starting with this challenge, I thought about my recent learnings about SVGs and the rect object. I wanted to be able to see this implemented and used in a case where you're using SVGs to plot rect objects, and getting notified if you're overlapping. From there, I thought through coordinate geometry, and created the <code>rectIntersect</code> function. I spent a moment to confirm that I couldn't define the function with a ? being so used to that convention with creating boolean methods in ruby. Despite that itch, I moved forward with the logic. </p>
+    <p>This function was challenging because Jacascript doesn't utilize ranges, which is what I wanted to use to determine if the coordinates ranges compared, but I decided to visualize the coordinates, and break down what comparison I needed to make. If you're starting from the top left of a screen, the starting coordinates from the second rectangle have to at least be within range of eachother, secondarily, checking if the rectangle reaches to intersect. I used the following examples to determine truth or false in my tests: </p>
+    <div>
+      <h4>Example Rectangles Uno y Dos</h4>
+      <svg width="400" height="400" viewBox="0 0 400 400">
+        <rect x="0" y="0" width="50" height="100" stroke="#56A000" stroke-width="4" fill="white" />
+        <rect x="20" y="40" width="50" height="180" fill="white" stroke="blue" stroke-width="4"/>
+      </svg>
+    </div>
+    <div>
+      <h4>Example Rectangles Tres Y Cuatro</h4>
+      <svg width="400" height="400" viewBox="0 0 400 400">
+        <rect x="0" y="0" width="120" height="100" stroke="purple" stroke-width="4" fill="white" />
+        <rect x="200" y="200" width="50" height="100" fill="white" stroke="orange" stroke-width="4"/>
+      </svg>
+    </div>
+    <p>Additional cases that are not defined are around whether it should be true if the second rectangle sits inside of, or covers the other rectangle. </p>
   </div>
 </body>
 </html>
