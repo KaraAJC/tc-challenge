@@ -33,8 +33,7 @@ function assignment3(str) { //function assignment3 takes a string argument
 //  - Seeing each iteration of the numbers shows the similarities in results of H at each letter, perhaps I could divide the number by 37 and determine what range of number it could be reduced between 0 and 15 (the index of the letter)
 //  - if i hold "aaaaaaa" as the base number, and see what the difference is, it could give me an idea of what letters are used.
 
-function decryptAssignment3 (cryptedNum) {
-  // divide the cryptedNum by 37 and save each result until you get to Equal or Less than 259.
+var decryptAssignment3 = function decryptAssignment3 (cryptedNum) {
   var cryptKey = ["a","c","d","e","g","i","l","m","n","o","p","r","s","t","u","w"];
   var letters = 0;
   var alphabetCodes = [cryptedNum]
@@ -50,8 +49,20 @@ function decryptAssignment3 (cryptedNum) {
   }
   //save each result until you get to Equal or Less than 259.
   while (cryptedNum > 259);
-
-
+  var phrase = []
   // at each letter, we use the base numbers of a, aa, etc. to find the difference
   // using that difference, increment up the letters array and save it to a return string
-}
+  for (i = 0; i < alphabetCodes.length; i++) {
+    var letter = cryptKey[alphabetCodes[alphabetCodes.length-(i+2)] - alphabetCodes[alphabetCodes.length-(i+1)]*37]
+    phrase.push(letter);
+    console.log(phrase);
+//     TEST CODE TO FIGURE OUT THE ABOVE LOGIC
+    // var firstLetter = cryptKey[(alphabetCodes[alphabetCodes.length-1]-259)];
+    // console.log("the first letter is: " + firstLetter)
+    // ;
+    // var nextLetter = cryptKey[alphabetCodes[alphabetCodes.length-2] - alphabetCodes[alphabetCodes.length-1]*37];
+    // console.log("the next letter is: " + nextLetter)
+  }
+  phrase.pop();
+  return phrase.join("");
+};
