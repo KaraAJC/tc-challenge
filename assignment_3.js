@@ -33,9 +33,25 @@ function assignment3(str) { //function assignment3 takes a string argument
 //  - Seeing each iteration of the numbers shows the similarities in results of H at each letter, perhaps I could divide the number by 37 and determine what range of number it could be reduced between 0 and 15 (the index of the letter)
 //  - if i hold "aaaaaaa" as the base number, and see what the difference is, it could give me an idea of what letters are used.
 
-function decryptAssignment3 (int64) {
-  // divide the int64 by 37 and save each result until you get to Equal or Less than 259.
+function decryptAssignment3 (cryptedNum) {
+  // divide the cryptedNum by 37 and save each result until you get to Equal or Less than 259.
+  var cryptKey = ["a","c","d","e","g","i","l","m","n","o","p","r","s","t","u","w"];
+  var letters = 0;
+  var alphabetCodes = [cryptedNum]
+  do {
+  // divide the cryptedNum by 37
+    cryptedNum = (cryptedNum/37).toFixed(0);
+    console.log( "the cryptedNum this round is: " + cryptedNum );
+    alphabetCodes.push(cryptedNum)
+    console.log("the codes collected are: " + alphabetCodes)
   // saving the iterations will tell us how many letters there are.
+    letters++;
+    console.log("there are " + letters + " letters")
+  }
+  //save each result until you get to Equal or Less than 259.
+  while (cryptedNum > 259);
+
+
   // at each letter, we use the base numbers of a, aa, etc. to find the difference
   // using that difference, increment up the letters array and save it to a return string
 }
