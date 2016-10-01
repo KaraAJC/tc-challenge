@@ -11,7 +11,7 @@
 // Input - a string comprised of the constant letters
 // Output - an int64 object
 
-function assignment3(str) { //function assignment3 takes a string argument
+var assignment3 = function assignment3(str) { //function assignment3 takes a string argument
   var h = 7; // assigns 7 to variable h
   console.log('H starts as: ' + h);
   var letters = ["a","c","d","e","g","i","l","m","n","o","p","r","s","t","u","w"]; // assigns constant letters array to variable 'letters'
