@@ -50,9 +50,51 @@
   </div>
   <div>
     <h2>Assignment Three</h2>
-    <p></p>
+    <p>Given the function <code> assignment3 </code> that calculates a number from a string:
+    <ul>
+      <li>Find the string for which the number is: 667734139064<li>
+      The string has 7 characters and it can have repeated chars. The strings has to be formed with the characters:</br>
+      <code>"a","c","d","e","g","i","l","m","n","o","p","r","s","t","u","w".</code>
+      <li>What does the code do?</li>
+      Given a String formed with any of the above characters, assignment3 function returns an Int64 for that String.For example the string leepdag has the hash number of 680131662011 . Please use the assingment3 function to see if you have the correct answer.
+    </br>
+    </ul>
+    </p>
     <hr>
-    <p></p>
+    <p>I went on a bit of a rabbit hole determining why an int64 was being used, then after that, I looked at the code line by line, and looked at what was happening. A way i like to debug is to use console log to see what's being done inside a function as it runs, so I ran the function a few times, using 1, 3, 5, then 7 letter words. </p>
+
+    <p>Starting with "a", i got the following from playing in the console: </p></br>
+    <div>
+    <code>assignment3("a")</br>
+      "H starts as: 7"</br>
+      "the letter I'm working on is: a"</br>
+      "the index you find this letter in our alphabet is: 0"</br>
+      "H is changed to: 259"</br>
+      259</br>
+      7*37</br>
+      259</br>
+      assignment3("aa")</br>
+      "H starts as: 7"</br>
+      "the letter I'm working on is: a"</br>
+      "the index you find this letter in our alphabet is: 0"</br>
+      "H is changed to: 259"</br>
+      "the letter I'm working on is: a"</br>
+      "the index you find this letter in our alphabet is: 0"</br>
+      "H is changed to: 9583"</br>
+      9583</br>
+      9583/37</br>
+      259</br>
+      </code>
+      </div>
+      <p>Starting with this in mind, I came up with the following ideas for cracking the code:
+      <ul>
+        <li>translating the letter array to their index. NOTE: the letters go to 15</li>
+        <li>remove 7 * 37 from the number since it's the first iteration?</li>
+        <li>Would there be a way to reduce the number similar to the square root using 37?</li>
+        <li>Seeing each iteration of the numbers shows the similarities in results of H at each letter, perhaps I could divide the number by 37 and determine what range of number it could be reduced between 0 and 15 (the index of the letter) </li>
+        <li>if i hold "aaaaaaa" as the base number, and see what the difference is, it could give me an idea of what letters are used.</li>
+      </ul>
+        </p>
   </div>
 </body>
 </html>
