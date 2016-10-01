@@ -24,7 +24,7 @@ function assignment3(str) { //function assignment3 takes a string argument
     console.log("H is changed to: " + h)
   }
   return h; //returns h
-}
+};
 
 // the number 667734139064 is a result of int 7 + 7 other integers being multiplied by 37 & itself. What a crypt! Ideas I have to cracking it:
 //  - translating the letter array to their index. NOTE: the letters go to 15
@@ -32,3 +32,10 @@ function assignment3(str) { //function assignment3 takes a string argument
 //  - Would there be a way to reduce the number similar to the square root using 37?
 //  - Seeing each iteration of the numbers shows the similarities in results of H at each letter, perhaps I could divide the number by 37 and determine what range of number it could be reduced between 0 and 15 (the index of the letter)
 //  - if i hold "aaaaaaa" as the base number, and see what the difference is, it could give me an idea of what letters are used.
+
+function decryptAssignment3 (int64) {
+  // divide the int64 by 37 and save each result until you get to Equal or Less than 259.
+  // saving the iterations will tell us how many letters there are.
+  // at each letter, we use the base numbers of a, aa, etc. to find the difference
+  // using that difference, increment up the letters array and save it to a return string
+}
