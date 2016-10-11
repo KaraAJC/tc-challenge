@@ -5,10 +5,10 @@ describe("rectIntersect", function() {
     var rectCuatro = {x: 18, y: 18, width: 5, height: 10};
 
   it("returns true if two rectangle intersects", function(){
-    expect(rectIntersect(rectUno, rectDos)).toBeTruthy;
+    expect(rectIntersect(rectUno, rectDos)).toBeTruthy();
   });
 
   it("returns false if two rectangles don't intersect ", function(){
-    expect(rectIntersect(rectTres, rectCuatro)).toBeFalsy;
+    expect(rectIntersect(rectTres, rectCuatro)).toBeFalsy();
   });
 });
