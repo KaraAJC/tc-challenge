@@ -11,29 +11,22 @@
 // Input - a string comprised of the constant letters
 // Output - an int64 object
 
-var assignment3 = function assignment3(str) { //function assignment3 takes a string argument
-  var h = 7; // assigns 7 to variable h
+var assignment3 = function assignment3(str) {                                       //function assignment3 takes a string argument
+  var h = 7;                                                                        // assigns 7 to variable h
   console.log('H starts as: ' + h);
-  var letters = ["a","c","d","e","g","i","l","m","n","o","p","r","s","t","u","w"]; // assigns constant letters array to variable 'letters'
-  for (var i = 0; i < str.length; i++) { // for loop starting from 0 to length of the string
-    var letter = str[i]; //assign sindividual letter in string being iterated on to variable 'letter'
+  var letters = ["a","c","d","e","g","i","l","m","n","o","p","r","s","t","u","w"];  // assigns constant letters array to variable 'letters'
+  for (var i = 0; i < str.length; i++) {                                            // for loop starting from 0 to length of the string
+    var letter = str[i];                                                            //assign sindividual letter in string being iterated on to variable 'letter'
     console.log("the letter I'm working on is: " + letter)
-    var index = letters.indexOf(letter); // assigns the index value of the letter being referred to based on the letters array to 'index'
+    var index = letters.indexOf(letter);                                            // assigns the index value of the letter being referred to based on the letters array to 'index'
     console.log("the index you find this letter in our alphabet is: " + index)
-    h = (h * 37) + index; // assigns the result of multiplying h to 37 then adding index to the variable 'h', (like a salt)
+    h = (h * 37) + index;                                                           // assigns the result of multiplying h to 37 then adding index to the variable 'h', (like a salt)
     console.log("H is changed to: " + h)
   }
-  return h; //returns h
+  return h;                                                                           //returns h
 };
 
-// the number 667734139064 is a result of int 7 + 7 other integers being multiplied by 37 & itself. What a crypt! Ideas I have to cracking it:
-//  - translating the letter array to their index. NOTE: the letters go to 15
-//  - remove 7 * 37 from the number since it's the first iteration?
-//  - Would there be a way to reduce the number similar to the square root using 37?
-//  - Seeing each iteration of the numbers shows the similarities in results of H at each letter, perhaps I could divide the number by 37 and determine what range of number it could be reduced between 0 and 15 (the index of the letter)
-//  - if i hold "aaaaaaa" as the base number, and see what the difference is, it could give me an idea of what letters are used.
-
-var decryptAssignment3 = function decryptAssignment3 (cryptedNum) {
+var wip_assignment3 = function wip_assignment3 (cryptedNum) {
   var cryptKey = ["a","c","d","e","g","i","l","m","n","o","p","r","s","t","u","w"];
   var letters = 0;
   var alphabetCodes = [cryptedNum]
@@ -62,6 +55,28 @@ var decryptAssignment3 = function decryptAssignment3 (cryptedNum) {
     // ;
     // var nextLetter = cryptKey[alphabetCodes[alphabetCodes.length-2] - alphabetCodes[alphabetCodes.length-1]*37];
     // console.log("the next letter is: " + nextLetter)
+  }
+  phrase.pop();
+  return phrase.join("");
+};
+
+
+
+// Function without Console Logs & annotation:
+var decryptAssignment3 = function decryptAssignment3 (cryptedNum) {
+  var cryptKey = ["a","c","d","e","g","i","l","m","n","o","p","r","s","t","u","w"];
+  var letter_count = 0;
+  var alphabetCodes = [cryptedNum]
+  do {
+    cryptedNum = (cryptedNum/37).toFixed(0);
+    alphabetCodes.push(cryptedNum)
+    letter_count++;
+  }
+  while (cryptedNum > 259);
+  var phrase = []
+  for (i = 0; i < alphabetCodes.length; i++) {
+    var letter = cryptKey[alphabetCodes[alphabetCodes.length-(i+2)] - alphabetCodes[alphabetCodes.length-(i+1)]*37]
+    phrase.push(letter);
   }
   phrase.pop();
   return phrase.join("");
